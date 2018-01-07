@@ -15,6 +15,17 @@ p = zeros(m, 1);
 %               You should set p to a vector of 0's and 1's
 %
 
+z = X * theta;
+h = sigmoid(z);
+
+i = find(h >= 0.5);
+
+
+for idx = i,
+    p(idx) = 1;
+end
+
+
 
 
 

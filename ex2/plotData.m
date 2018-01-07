@@ -13,6 +13,13 @@ figure; hold on;
 %
 
 
+% Find Indices of Positive and Negative Examples
+neg = find(y==0);
+pos = find(y==1);
+
+plot(X(pos, 1), X(pos, 2), 'k+', 'linewidth', 2, 'markersize', 7);
+plot(X(neg, 1), X(neg, 2), 'ko', 'markersize', 7, 'markerfacecolor', 'y');
+
 
 
 
