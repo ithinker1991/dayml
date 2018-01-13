@@ -13,9 +13,26 @@ num_labels = size(all_theta, 1);
 
 % You need to return the following variables correctly 
 p = zeros(size(X, 1), 1);
+last_h = zeros(size(X, 1), 1);
 
 % Add ones to the X data matrix
 X = [ones(m, 1) X];
+
+for num = 1:num_labels
+    theta = all_theta(num,:)';
+    h = sigmoid(X * theta);
+%    i = find(h>=0.5);
+    for idx = 1:m
+        if h(idx) > last_h(idx)
+            last_h(idx) = h(idx);
+            p(idx) = num;
+        end
+    end
+end
+
+
+
+
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Complete the following code to make predictions using
